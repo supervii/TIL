@@ -8,3 +8,4 @@ realtime = soup.select('#PM_ID_ct > div.header > div.section_navbar > div.area_h
 for i in realtime:
     print(i.text)
 
+# 두번째 커밋을 위한 주석 !!
