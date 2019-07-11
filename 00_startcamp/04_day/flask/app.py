@@ -114,4 +114,4 @@ def this_is_u():
 	name = request.args.get('data')
 	cha_list = ['단순함', '똑똑함','능력','재운','외모','매력']
 	cha = random.sample(cha_list,3)
-	return render_template('/itsu', name=name, cha=cha)
+	return render_template('/itsu.html', name=name, cha=cha)
