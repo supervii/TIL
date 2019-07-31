@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Heading -->
+  <!-- H1 태그는 한페이지에 하나만 쓴다 -->
+  <h1>Hi, h1!</h1>
+  <h2>Hi, h2!</h2>
+  <h3>Hi, h3!</h3>
+  <h4>Hi, h4!</h4>
+  <h5>Hi, h5!</h5>
+  <h6>Hi, h6!</h6>
+
+  <!-- Bold -->
+  <div>
+    <b>Thiz iz bold</b>
+    <strong>Thiz iz Strong(semantic)</strong>
+  </div>
+
+  <!-- italic -->
+  <div>
+    <i>This is italic</i>
+    <em>This is em(semantic)</em>
+  </div>
+
+  <!-- highlight -->
+  <h2>This is <mark>Mark.</mark></h2>
+
+  <!-- del / ins -->
+  <h2>this is <del>del</del></h2>
+  <h2>this is <ins>ins</ins></h2>
+
+  <!-- sub지수/ sup제곱 -->
+  <h2>this is <sub>sub</sub></h2>
+  <h2>this is <sup>sup</sup></h2>
+
+  <!-- p태그/ br태그 -->
+  <p>
+    this is ptag <br>
+    this is ptag <br>
+    this is ptag <br>
+    this is ptag <br>
+    this is ptag
+  </p>
+
+  <pre>
+    from flask import flask
+    app = Flask(__name__)
+
+    @app.route('/')
+    def hello('/'):
+      return 'Hello world'
+     
+  </pre>
+<!-- headline -->
+<hr>
+<!-- q/ blodkquote -->
+<p>
+  J, said <q>hi!</q>
+</p>
+<blockquote>
+  bye, there!
+</blockquote>
+ 
+<!-- ol/ ul /li -->
+<ol>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ol>
+<ul>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+</body>
+
+</html>
