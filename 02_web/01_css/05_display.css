@@ -1,0 +1,21 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  color: white;
+  line-height: 100px;
+  text-align: center;
+}
+/* 오른쪽 정렬 */
+.ml-auto {
+  /* 왼쪽에 남은 너비를 붙인다 */
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}

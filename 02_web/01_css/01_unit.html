@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>unit</title>
+  <link rel="stylesheet" href="01_unit.css">
+</head>
+<body>
+  <h1>단위를 알아봅시다.</h1>
+  <p>Default font </p><!--원래 16px  css로 기본을 바꿔줌-->
+  <ol>
+    <li>1.2rem</li> <!--24px : 20 *1.2-->
+  </ol>
+  <ul>
+    <li>1.2em</li> <!--28.8px : 20 *1.2(자신) *1.2(부모)-->
+  </ul>
+
+  <!--vw, vh-->
+  <span class="vw">10vw</span> <!--너비 기준으로 반응하여 바뀜-->
+  <span class="vh">10vh</span> <!--높이 기준으로 반응하여 바뀜-->
+  <div class="div-vw"></div> <!--박스 너비 반응-->
+  <div class="div-vh"></div> <!--박스 높이 반응-->
+
+  <!--vmin-->
+  <div class="div-vmin">10vmin</div>
+</body>
+</html>

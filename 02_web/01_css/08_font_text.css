@@ -1,0 +1,45 @@
+.font-1 {
+ font-size: 30px;
+ font-family: 'Courier New', Courier, monospace;
+ font-style: italic;
+ font-weight: lighter; 
+}
+.font-2 {
+font-size: 2rem;
+font-family: 'Times New Roman', Times, serif;
+}
+.font-3 {
+font-size: 130%;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+.font-4 {
+font-size: small;
+font-weight: 700;
+}
+.font-5 {
+ /* fontshorthand  */
+ /* font: fontstyle,fontweight,line-height, font-size(필수), font-family(필수) */
+ font: italic 2rem "Hack";
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  color: white;
+}
+/* 텍스트 한줄 쉽게 정리하기 */
+.box > p { 
+  text-align: center;
+  /* 
+  line-height 를 부모의 height 만큼 주면 
+  텍스트를 수직 정렬하기에 용이하다.
+  (텍스트가 한줄일 경우)
+   */
+  line-height: 100px;
+} 
+
+.web-font {
+  font-family: 'Sunflower', sans-serif;
+}
