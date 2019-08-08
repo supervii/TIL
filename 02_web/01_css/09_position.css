@@ -1,0 +1,58 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  color: wheat;
+  text-align: center;
+  line-height: 100px;
+}
+
+.parent {
+background-color: aquamarine;
+}
+
+.absolute {
+  position: absolute;
+  top: 50px;
+  left: 50px
+}
+
+.parent-relative {
+  background-color: aquamarine;
+
+  }
+.relative {
+  position: relative;
+}
+
+.relative-move {
+  position: relative;
+  left: 30px;
+
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%
+}
+
+.z-index-1 {
+  position: absolute;
+  background-color: chartreuse;
+  z-index: 100;
+}
+.z-index-2 {
+  position: absolute;
+  background-color: cornflowerblue;
+  top: 30px;
+  left: 30px;
+  z-index: 10;
+}
+.z-index-3 {
+  position: absolute;
+  background-color: cyan;
+  top: 60px;
+  left: 60px;
+}
