@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/pages/user_create/" method="POST">
+  {% csrf_token %}
+  <label for="name">ID</label>
+  <input type="text" name="name" id="name">
+  <br>
+  <label for="pwd">Password</label>
+  <input type="password" name="pwd" id="pwd">
+  <input type="submit">
+</form>
+{% endblock content %} 
+
+
