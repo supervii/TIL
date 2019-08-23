@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">New Movie</h1>
+<form action="/movies/create/" method="POST">
+{% csrf_token %}
+<label for="title">Title :</label><br>
+<input type="text" name="title" id="title"><br>
+<label for="title_en">Title_En :</label><br>
+<input type="text" name="title_en" id="title_en"><br>
+<label for="audience">Audience :</label><br>
+<input type="number" name="audience" id="audience"><br>
+<label for="open_date">Open_Date :</label><br>
+<input type="date" name="open_date" id="open_date"><br>
+<label for="genre">Genre :</label><br>
+<input type="text" name="genre" id="genre"><br>
+<label for="watch_grade">Watch_Grade :</label><br>
+<input type="text" name="watch_grade" id="watch_grade"><br>
+<label for="score">Score :</label><br>
+<input type="float" name="score" id="score"><br>
+<label for="poster_url">Poster_Url :</label><br>
+<input type="text" name="poster_url" id="poster_url"><br>
+<label for="description">Description :</label><br>
+<textarea name="description" id="description" cols="100" rows="10"></textarea><br>
+<input type="submit" value="Form Submit">
+
+</form>
+{% endblock  %}
