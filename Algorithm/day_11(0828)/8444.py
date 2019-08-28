@@ -4,3 +4,19 @@
 # 모두 꺼져있는 상황에서 주어진 정보대로 불을 켜기 위해 스위치를 조작해야하는 최소 횟수를 구하라.
 # 예를 들어 6개의 방이 1번부터 꺼짐(0), 켜짐(1), 켜짐(1), 꺼짐(0), 꺼짐(0), 켜짐(1)이라면 2번방, 3번방, 4번방,
 # 6번방의 스위치 네개를 조작하면 되므로 답은 4이다.
+import sys; sys.stdin = open('8444.txt','r')
+T = int(input())
+for tc in range(1, T+1):
+    N = int(input())
+    arr = [0]*N
+    room = list(map(int, input().split()))
+
+    for i in range(1, N+1):
+        if room == arr:
+            break
+        else:
+            arr[i] = arr[i+i] = 1
+
+
+
+
