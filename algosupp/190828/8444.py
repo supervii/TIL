@@ -10,12 +10,22 @@ for tc in range(1, T+1):
     N = int(input())
     arr = [0]*N
     room = list(map(int, input().split()))
+    cnt= 0
 
-    for i in range(1, N+1):
+    for i in range(N):
         if room == arr:
             break
         else:
-            arr[i] = arr[i+i] = 1
+            if room[i] != arr[i]:
+                cnt += 1
+                for j in range(i,N,i+1):
+                    if arr[j]:
+                        arr[j] = 0
+                    else:
+                        arr[j] = 1
+    print('#{} {}'.format(tc, cnt))
+
+
 
 
 
