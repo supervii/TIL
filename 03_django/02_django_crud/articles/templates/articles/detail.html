@@ -9,7 +9,11 @@
 <p>생성시간 : {{ article.created_at }}</p>
 <p>업뎃시간 : {{ article.updated_at }}</p>
 <hr>
-<a href="/articles/{{ article.pk }}/edit/">[Edit]</a>
-<a href="/articles/{{ article.pk }}/delete/">[Delete]</a>
-<a href="/articles/">Back</a>
+<a href="{% url 'articles:update' article.pk %}">[UPDATE]</a>
+<form action="{% url 'articles:delete' article.pk %}" method='POST' onclick="return confirm('진짜 지울꺼야??')">
+  {% csrf_token %}
+  <input type="submit" value="DELETE">
+
+</form>
+<a href="{% url 'articles:index' %}">Back</a>
 {% endblock  %}
