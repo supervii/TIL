@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-<img src="{% static 'articles/images/pretty.jpg' %}" alt="sample_img">
 <h1 class="text-center">Articles</h1>
 <a href="{% url 'articles:create' %}">[NEW]</a>
 <hr>
@@ -14,5 +12,5 @@
 <a href="{{ article.get_absolute_url }}">[DETAIL]2</a>
 <hr>
 {% endfor %}
-
+  
 {% endblock  %}

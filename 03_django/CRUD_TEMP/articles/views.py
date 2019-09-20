@@ -18,10 +18,8 @@ def create(request):
     if request.method =='POST':
         title = request.POST.get('title')
         content = request.POST.get('content')
-        image = request.FILES.get('image')
-        article = Article(title=title, content=content, image=image)
+        article = Article(title=title, content=content)
         article.save()
-        # embed()
         return redirect('articles:detail', article.pk)
     else:
         return render(request, 'articles/create.html')
@@ -71,7 +69,6 @@ def update(request, article_pk):
     if request.method == 'POST':
         article.title = request.POST.get('title')
         article.content = request.POST.get('content')
-        article.image = request.FILES.get('image')
         article.save()
         return redirect('articles:detail', article.pk)
     else:
