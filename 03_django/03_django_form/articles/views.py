@@ -1,8 +1,9 @@
 from IPython import embed
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
+from django.views.decorators.http import require_POST
 from .models import Article, Comment
-from .forms import ArticleForm
+from .forms import ArticleForm, CommentForm
 # Create your views here.
 def index(request):
     articles = Article.objects.all()
@@ -29,16 +30,17 @@ def create(request):
 
 def detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
-    context = {'article':article,}
+    comments = article.comment_set.all #article 의 모든 댓글
+    comment_form = CommentForm() #댓글 폼
+    context = {'article':article, 'comment_form':comment_form, 'comments':comments}
     return render(request, 'articles/detail.html',context)
 
+@require_POST
 def delete(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
-    if request.method == 'POST':
-        article.delete()
-        return redirect('articles:index')
-    else:
-        return redirect(article)
+    article.delete()
+    return redirect('articles:index')
+    
 
 def update(request, article_pk):
     article = get_object_or_404(Article, pk =article_pk)
@@ -57,29 +59,19 @@ def update(request, article_pk):
     context = {'form':form, 'article':article,}
     return render(request, 'articles/form.html', context)
 
-
+@require_POST
 def comment_create(request, article_pk):
-    # 댓글을 달 게시글
-    article = get_object_or_404(Article, pk =article_pk)
-    if request.method == 'POST':
-        #form 에서 넘어온 댓글 정보
-        f = ArticleForm(request.POST, instance=article)
-        if f.is_valid():
-            new_author = f.save(commit=False)
-            new_author.some_field = 'article_id'
-            new_author.save()
-            return redirect(article)
-         
-              # return redirect('articles:detail', article_pk)
-        
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        # 객체를 create 하지만, db에 레코드는 작성하지 않는다.
+        comment = comment_form.save(commit=False)
+        comment.article_id = article_pk
+        comment.save()
+    return redirect('articles:detail', article_pk)
+    
 
-    else:
-        return redirect(article)
-
-def comments_delete(request, article_pk, cmt_pk):
-    # article =Article.objects.get(pk=article_pk)
-    comment = Comment.objects.get(pk=cmt_pk)
-    if request.method =='POST':
-        comment.delete()
-    # return redirect(article)
+@require_POST
+def comments_delete(request, article_pk, comment_pk):
+    comment = get_object_or_404(Comment, pk =comment_pk)
+    comment.delete()
     return redirect('articles:detail', article_pk)
