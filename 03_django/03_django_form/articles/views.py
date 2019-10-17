@@ -30,7 +30,7 @@ def create(request):
 
 def detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)
-    comments = article.comment_set.all #article 의 모든 댓글
+    comments = article.comment_set.all() #article 의 모든 댓글
     comment_form = CommentForm() #댓글 폼
     context = {'article':article, 'comment_form':comment_form, 'comments':comments}
     return render(request, 'articles/detail.html',context)
