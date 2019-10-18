@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+{% if request.resolver_match.url_name == 'create' %}
+<h1 class="m-3">새 영화 등록하기</h1>
+{% else %}
+<h1 class="m-3">영화 정보 수정하기</h1>
+{% endif %}
+
+<form action="" method="POST">
+{% csrf_token %}
+{% bootstrap_form movie_form layout="horizontal" %}
+{% buttons submit='OK' reset="Cancel" %}
+{% endbuttons %}
+</form>
+
+{% if request.resolver_match.url_name == 'create' %}
+<a href="{% url 'movies:index' %}">뒤로 가기</a>
+{% else %}
+<a href="{% url 'movies:index' %}">뒤로 가기</a>
+{% endif %}
+
+{% endblock content %}
