@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1 class="text-center mt-3">Movie recommendation</h1>
+<h1 class="text-center" style="margin-top:40px;">Movie recommendation</h1>
 <div class="card bg-dark text-white">
+
   <img
-    src="https://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+    src="{% static 'movies/images/1.jpg' %}"
     class="card-img" alt="#" style="height:350px; width:100%;">
   <div class="card-img-overlay">
     <a href="{% url 'movies:create' %}" class="btn btn-success float-right" style="font-family: 'Jua', sans-serif;" >새 영화 등록</a><br>
