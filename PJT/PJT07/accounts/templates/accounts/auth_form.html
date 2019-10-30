@@ -1,0 +1,19 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+
+{% if request.resolver_match.url_name == 'signup' %}
+<h1>회원가입</h1>
+<hr>
+{% elif request.resolver_match.url_name == 'login' %}
+<h1>로그인</h1>
+<hr>
+{% endif %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="submit">
+  <a href="{% url 'accounts:user_list' %}">MAIN</a>
+</form>
+{% endblock content %}

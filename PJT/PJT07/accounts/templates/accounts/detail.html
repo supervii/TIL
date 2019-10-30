@@ -1,0 +1,9 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+{% for review in reviews %}
+<b>COMMENT</b> : {{ review.content }} | <b>SCORE</b> : {{ review.score }}/10 점 <hr>
+{% empty %}
+<p><b>댓글이 없습니다.</b></p>
+{% endfor %}
+{% endblock content %}

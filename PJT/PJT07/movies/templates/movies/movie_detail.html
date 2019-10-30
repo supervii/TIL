@@ -1,0 +1,41 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<img src="{{ movie.poster_url }}" alt="movie_poster_url" width="300px;">
+<h5 class="card-title">{{ movie.title }}</h5>
+<p class="card-text">누적 관객수 : {{ movie.audience }}</p>
+<hr>
+<p class="card-text">{{ movie.description }}</p>
+<hr>
+
+{% for review in reviews %}
+<div>
+  댓글 {{ forloop.revcounter }} : {{ review.content }} | {{ review.score }}/10 점
+  {% if request.user == review.user %}
+  <form action="{% url 'movies:review_delete' movie.pk review.pk %}" method="POST" style="display: inline;">
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+  </form>
+  <hr>
+  {% else %}
+<hr>
+  {% endif %}
+</div>
+{% empty %}
+<p><b>댓글이 없습니다.</b></p>
+{% endfor %}
+<hr>
+
+{% if user.is_authenticated %}
+  <form action="{% url 'movies:review_create' movie.pk %}" method="POST">
+    {% csrf_token %}
+    {{ review_form.content.label_tag }} &nbsp; {{ review_form.content }}
+    {{ review_form.score }}
+    <input type="submit" value="REVIEW">
+  </form>
+{% else %}
+  <a href="{% url 'accounts:login' %}">댓글을 작성하려면 로그인 하세요</a>
+{% endif %}
+  <hr>
+  <a href="{% url 'movies:index' %}">BACK</a>
+{% endblock content %}
