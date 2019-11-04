@@ -1,0 +1,27 @@
+{% extends 'articles/base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+{% if request.resolver_match.url_name == 'create' %}
+<h1>Create</h1>
+{% else %}
+<h1>Update</h1>
+{% endif %}
+
+
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {% bootstrap_form form layout="horizontal"%}
+  {% buttons %}
+  {% buttons submit="OK" reset="Cancel" %}{% endbuttons %}
+  {% endbuttons %}
+</form>
+
+
+{% if request.resolver_match.url_name == 'create' %}
+<a href="{% url 'articles:index' %}">[Back]</a>
+{% else %}
+<a href="{{ article.get_absolute_url }}">[Back]</a>
+{% endif %}
+{% endblock  %}
