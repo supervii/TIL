@@ -37,6 +37,7 @@
 
 <script>
 import axios from 'axios'
+import router from '../router'
   export default {
     name: 'LoginForm',
     data() {
@@ -52,12 +53,18 @@ import axios from 'axios'
     methods: {
       login() {
         if (this.checkForm()) {
-          this.loading = true
-          axios.get('http://127.0.0.1:8000', this.credentials)
+          this.loading =true
+          // django jwt를 생성하는 주소로 요청을 보냄
+          // 이때 post 요청으로 보내야하며 사용자가 입력한 로그인 정보(credentials)를 같이 넘겨야 한다.
+          axios.post('http://127.0.0.1:8000/api-token-auth/', this.credentials)
           .then(res =>{
-            console.log(res)
+            this.$session.start()
+            this.$session.set('jwt', res.data.token)
+            router.push('/')
           })
           .catch(err => {
+            //로그인 실패 시 loading의 상태를 다시 false로 변경
+            this.loading =false
             console.log(err)
           })
         } else {
